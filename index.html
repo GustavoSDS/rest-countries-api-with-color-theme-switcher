@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="shortcut icon" href="images/favicon-32x32.png" type="image/x-icon">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rest countries api with color theme</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <script src="https://kit.fontawesome.com/c58b742e74.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="light">
+  <div class="container">
+    <header class="header light">
+      <h1 class="header__title">Where in the world?</h1>
+      <div class="header__theme" id="theme">
+        <!-- <i class="light fa-solid fa-moon"></i> -->
+        </di>
+    </header>
+    <main class="countries">
+      <div id="container-countries">
+        <div class="countries__section-search">
+          <input autocomplete="off" type="text" name="input" id="search-input" placeholder="Search for a country..." class="countries__section-search-input countries__section-search-input light">
+
+          <div class="custom-select-container">
+            <div class="custom-select">
+              <select name="filter" id="search-filter" class="countries__section-search-filter light">
+                <option value="0">Filter by Region</option>
+                <option value="1">Africa</option>
+                <option value="2">America</option>
+                <option value="3">Asia</option>
+                <option value="4">Europe</option>
+                <option value="5">Oceania</option>
+              </select>
+            </div>
+            <div class="custom-select-limit">
+              <select name="filter" id="number-limit" class=" light">
+                <option value="0">10</option>
+                <option value="1">25</option>
+                <option value="2">50</option>
+                <option value="3">100</option>
+                <option value="4">All</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div id="countries" class="countries__section-countries">
+
+        </div>
+      </div>
+
+      <div id="container-details" class="country-details light">
+        <button id="btn-back" class="country-details__button-back light">Back</button>
+        <div id="details" class="country-details__container">
+            
+        </div>
+      </div>
+
+    </main>
+  </div>
+  <script src="./js/main.js"></script>
+  <script src="./js/custom-select.js"></script>
+  <script src="./js/custom-select-limit.js"></script>
+</body>
+
+</html>

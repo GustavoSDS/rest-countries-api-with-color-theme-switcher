@@ -1,0 +1,30 @@
+@use 'variables' as var
+
+@mixin input-btn($width, $height, $padding-left, $color, $box-color, $px-radius)
+    width: $width
+    height: $height
+    padding-left: $padding-left
+    border: none
+    border-radius: $px-radius
+    color: $color
+    background-color: var.$White
+    box-shadow: 0px 2px 10px 0px $box-color
+    &:focus
+        outline: none
+
+@mixin input-btn-basic($width, $height, $padding-left, $br-radius)
+  width: $width
+  height: $height
+  padding-left: $padding-left
+  border: none
+  border-radius: $br-radius
+  font-weight: 300
+  &:focus
+    outline: none
+  &.light
+    background-color: var.$White
+    color: var.$Dark-Blue
+    box-shadow: 0px 0px 16px -9px var.$Dark-Gray
+  &.dark
+    background-color: var.$Dark-Blue
+    color: var.$Very-Light-Gray

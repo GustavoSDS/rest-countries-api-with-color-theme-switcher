@@ -1,0 +1,257 @@
+@use 'variables' as var
+@use 'mixins' as mix
+
+.container
+  min-width: 375px
+  width: 390px
+  margin: auto
+  height: 100%
+  min-height: 100vh
+
+.header
+  width: 100%
+  height: 99px
+  padding: 0 20px
+  display: flex
+  align-items: center
+  justify-content: space-between
+  &.light
+    background-color: var.$White
+    box-shadow: 0px 0px 16px -8px var.$Dark-Gray
+  &.dark
+    background-color: var.$Dark-Blue
+    box-shadow: 0px 10px 20px -20px var.$Dark-Blue
+
+  &__title
+    font-size: 1.0938rem
+    font-weight: 800
+  &__theme
+    height: 24px
+    width: 105px
+    text-align: right
+    i
+      margin-right: 10px
+      transform: rotate(-25deg)
+    &:hover
+      cursor: pointer
+    &.light
+      color: var.$Very-Dark-Blue-Text
+    &.dark
+      color: var.$White
+
+.countries
+  margin-top: 30px
+  padding: 0 20px
+
+  &__section-search
+    display: flex
+    flex-direction: column
+    margin-bottom: 40px
+
+    &-input
+      @include mix.input-btn-basic(100%, 59px, 90px, 8px)
+      margin-bottom: 50px
+      background:
+        position: 40px center
+        repeat: no-repeat
+        size: 24px
+
+      &.light
+        color: var.$Very-Dark-Blue-Text
+        background-color: var.$White
+        background-image: url('../images/icon-search.svg')
+        &::placeholder
+          color: var.$Light-Gray
+
+      &.dark
+        background-image: url('../images/icon-search-white.svg')
+        color: var.$White
+        background-color: var.$Dark-Blue
+        &::placeholder
+          color: var.$Very-Light-Gray
+        
+  .custom-select
+    width: 55%
+    position: relative
+
+    &-container
+        display: flex
+        justify-content: space-between
+
+    /*hide original SELECT element:*/
+    select
+        display: none
+
+    .select-selected
+        @include mix.input-btn-basic(auto, 59px, 30px, 8px)
+        padding: 0px 30px 0
+        display: flex
+        align-items: center
+        font-weight: 600
+        background:
+            repeat: no-repeat
+            position: calc(100% - 20px) center
+            size: 20px
+        font-size: .9375rem !important
+
+    /*style the items (options), including the selected item:*/
+    .select-items div,.select-selected
+        cursor: pointer
+        user-select: none
+        &.dark
+            color: var.$White
+        &.light
+            color: var.$Dark-Blue
+
+    /*style items (options):*/
+    .select-items
+        width: auto
+        position: absolute
+        background-color: var.$White
+        top: 66px
+        left: 0
+        right: 0
+        border-radius: 6px
+        z-index: 99
+        padding: 15px 0 10px
+        &.dark
+            background-color: var.$Dark-Blue
+            color: var.$White
+        &.light
+            color: var.$Very-Dark-Blue
+        div
+            font-size: .9375rem !important
+            height: 35.6px
+            padding: 0 25px
+            transition: all .2s ease-in-out
+            display: flex
+            align-items: center
+        
+
+    /*hide the items when the select box is closed:*/
+    .select-hide
+        display: none
+
+    .select-items div:hover, .same-as-selected
+        background-color: var.$Light-Gray
+        color: var.$Very-Dark-Blue
+        transform: scale(1.008)
+
+    .select-arrow-down
+        &.light
+            background:
+                image: url(../images/arrow-down.svg)
+        &.dark
+            background:
+                image: url(../images/arrow-down-white.svg)
+    .select-arrow-up
+        &.light
+            background:
+                image: url(../images/arrow-up.svg)
+        &.dark
+            background:
+                image: url(../images/arrow-up-white.svg)
+
+    &-limit
+        @extend .custom-select
+        width: 35%
+  
+
+
+  &__section-countries
+    width: 100%
+    display: flex
+    flex-direction: column
+    align-items: center
+
+  &__country
+    // width: 328px
+    width: 90%
+    height: 199px + 218px
+    margin-bottom: 50px
+    border-radius: 7px
+    overflow: hidden
+    &:hover
+      cursor: pointer
+
+    &.light
+      background-color: var.$White
+      box-shadow: 0px 0px 15px -10px var.$Dark-Blue
+      color: var.$Very-Dark-Blue-Text
+    &.dark
+      background-color: var.$Dark-Blue
+      color: var.$White
+    &-flag
+      width: 100%
+      height: 199px
+
+    &-details
+      padding-left: 30px
+      span.light
+        color: var.$Very-Dark-Blue
+      span.dark
+        color: var.$Light-Gray
+
+    &-name
+      font-size: 1.4375rem
+      font-weight: 800
+      margin: 30px 0 15px
+    p
+      font-weight: 600
+      margin-bottom: 10px
+
+.country-details
+  display: none
+
+  &__container
+    display: flex
+    flex-direction: column
+
+  &__button-back
+    @include mix.input-btn-basic(108px, 42px, 20px, 5px)
+    margin-bottom: 64px
+    background:
+      position: 16px center
+      repeat: no-repeat
+      size: 24px
+    &:hover
+      cursor: pointer
+    &.light
+      background-image: url('../images/arrow-back.svg')
+    &.dark
+      background-image: url('../images/arrow-back-white.svg')
+
+  &__flag
+    width: 100%
+    height: 229px
+
+  &__details
+    &-principal
+      margin: 45px 0 50px
+    &-secondary
+      margin-bottom: 40px
+    &-name
+      @extend .countries__country-name
+    p
+      font-weight: 600
+      margin-bottom: 10px
+
+  &__borders-countries
+    width: 100%
+    display: flex
+    flex-direction: column
+    margin-bottom: 60px
+    div
+      display: flex
+      flex-wrap: wrap
+      gap: 20px
+    span
+      @include mix.input-btn-basic(auto, 42px, 0px, 6px)
+      display: grid
+      place-content: center
+      text-align: center
+      padding: 0 10px
+      &:hover
+        cursor: pointer
+      
+

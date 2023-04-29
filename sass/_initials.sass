@@ -1,0 +1,20 @@
+@use 'variables' as var
+
+*
+  margin: 0
+  padding: 0
+  box-sizing: border-box
+  font: 16px var.$Font-family
+
+body
+  &.light
+    background-color: var.$Very-Light-Gray
+    color: var.$Very-Dark-Blue-Text
+  &.dark
+    background-color: var.$Very-Dark-Blue
+    color: var.$White
+    display: flex
+    align-items: center
+    justify-content: center
+    place-content: center
+    margin: auto

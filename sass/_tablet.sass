@@ -1,0 +1,48 @@
+@use 'variables' as var
+@use 'mixins' as mix
+
+@media screen and ( min-width: 768px )
+  *
+    font-size: 20px
+
+  .header *
+    font-size: 26px
+
+  .container
+    width: 768px
+
+  .header
+    padding: 0 40px
+    &__theme
+      width: 200px
+
+  .countries
+    padding: 0 56px
+
+    &__section-countries
+      flex-wrap: wrap
+      column-gap: 20px
+      flex-direction: row
+      justify-content: space-between
+
+    &__country
+      width: 310px
+      height: 420px
+      margin-bottom: 30px
+
+  .country-details
+
+    &__button-back
+      @include mix.input-btn-basic(208px, 64px, 40px, 5px)
+      font-size: 26px
+      background:
+        position: 48px center
+        size: 32px
+    &__flag
+      height: 458px
+
+  .custom-select
+    width: 40%
+
+    &-limit
+      width: 20%

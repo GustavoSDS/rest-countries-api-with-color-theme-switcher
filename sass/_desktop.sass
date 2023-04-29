@@ -1,0 +1,120 @@
+@use 'variables' as var
+@use 'mixins' as mix
+
+@media screen and ( min-width: 1200px )
+  *
+    font-size: 16px
+  .header *
+    font-size: 1rem
+
+  .container
+    min-width: 1200px
+    width: 1440px
+
+  .header
+    height: 80px
+    padding: 0 80px
+    align-items: center
+    &__title
+      font-size: 1.5rem
+    &__theme
+      width: 200px
+
+  .countries
+    margin-top: 48px
+    padding: 0 80px
+
+    &__section-search
+      height: 60px
+
+      flex-direction: row
+      justify-content: space-between
+
+      &-input
+        @include mix.input-btn-basic(480px, 56px, 90px, 8px)
+    .custom-select
+      &-container
+        width: 40%
+        justify-content: flex-end
+
+      .select-selected
+        @include mix.input-btn-basic(200px, 56px, 30px, 8px)
+
+      .select-items
+        width: 200px
+
+      &-limit
+        width: 30%
+        .select-selected
+          height: 56px
+
+    &__section-countries
+      display: grid
+      grid-template-columns: repeat(3, 1fr)
+      gap: 50px
+
+      @media screen and ( min-width: 1440px )
+        grid-template-columns: repeat(4, 1fr)
+        gap: 75px
+
+    &__country
+      min-width: 264px
+      width: 100%
+      min-height: 335px
+      height: 100%
+      &-flag
+        min-height: 160px
+        height: 50%
+      h2
+        margin-top: 10px
+        font-size: 1.125rem !important
+      * p
+        margin-bottom: 5px
+        font-size: 1rem !important
+
+  .country-details
+    &__container
+      margin-top: 80px
+      flex-direction: row
+      column-gap: 120px
+    &__button-back
+      @include mix.input-btn-basic(136px, 40px, 40px, 5px)
+      font-size: 20px
+      background:
+        position: 24px center
+        size: 24px
+    &__flag
+      width: 560px
+      height: 401px
+
+    &__details
+      width: 100%
+      h2
+        font-size: 1.75rem
+      &-container
+        display: flex
+        align-items: center
+        justify-content: space-between
+        flex-direction: row
+
+      &-principal
+        width: 50%
+      &-secundary
+        width: 50%
+
+    &__borders-countries
+      flex-direction: row
+      align-items: center
+      column-gap: 20px
+      p
+        width: 160px
+      div
+        flex-direction: row
+        flex-wrap: wrap
+        gap: 20px
+
+  .custom-select
+    width: 40%
+
+    &-limit
+      width: 20%
